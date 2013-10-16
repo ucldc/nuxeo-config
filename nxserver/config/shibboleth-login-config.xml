@@ -22,8 +22,8 @@
         <default>mail</default>
       </uidHeaders>
 
-      <loginURL>https://nuxeo-stg.cdlib.org/Shibboleth.sso/Login</loginURL>
-      <logoutURL>https://nuxeo-stg.cdlib.org/Shibboleth.sso/Logout</logoutURL>
+      <loginURL>.../Shibboleth.sso/Login</loginURL>
+      <logoutURL>.../Shibboleth.sso/Logout</logoutURL>
 
       <fieldMapping header="eppn">eppn</fieldMapping>
       <fieldMapping header="mail">mail</fieldMapping>
@@ -33,8 +33,8 @@
 
 <extension target="org.nuxeo.ecm.platform.usermanager.UserService" point="userManager">
  <userManager class="org.nuxeo.ecm.platform.usermanager.UserManagerWithComputedGroups">
-  <defaultAdministratorId></defaultAdministratorId>
-  <defaultAdministratorId></defaultAdministratorId>
+  <defaultAdministratorId>...</defaultAdministratorId>
+  <defaultAdministratorId>...</defaultAdministratorId>
   <defaultGroup>members</defaultGroup>
  </userManager>
 </extension>
