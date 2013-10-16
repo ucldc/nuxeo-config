@@ -1,0 +1,42 @@
+<component name="sample.shibboleth.config">
+
+  <require>org.nuxeo.ecm.platform.ui.web.auth.WebEngineConfig</require>
+  <require>org.nuxeo.ecm.platform.usermanager.UserManagerImpl</require>
+
+  <extension
+      target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService"
+      point="chain">
+    <authenticationChain>
+      <plugins>
+        <plugin>SHIB_AUTH</plugin>
+        <plugin>BASIC_AUTH</plugin>
+      </plugins>
+    </authenticationChain>
+  </extension>
+
+  <extension
+    target="org.nuxeo.ecm.platform.shibboleth.service.ShibbolethAuthenticationService"
+    point="config">
+    <config>
+      <uidHeaders>
+        <default>mail</default>
+      </uidHeaders>
+
+      <loginURL>https://nuxeo-stg.cdlib.org/Shibboleth.sso/Login</loginURL>
+      <logoutURL>https://nuxeo-stg.cdlib.org/Shibboleth.sso/Logout</logoutURL>
+
+      <fieldMapping header="eppn">eppn</fieldMapping>
+      <fieldMapping header="mail">mail</fieldMapping>
+    </config>
+  </extension>
+
+
+<extension target="org.nuxeo.ecm.platform.usermanager.UserService" point="userManager">
+ <userManager class="org.nuxeo.ecm.platform.usermanager.UserManagerWithComputedGroups">
+  <defaultAdministratorId></defaultAdministratorId>
+  <defaultAdministratorId></defaultAdministratorId>
+  <defaultGroup>members</defaultGroup>
+ </userManager>
+</extension>
+
+</component>
